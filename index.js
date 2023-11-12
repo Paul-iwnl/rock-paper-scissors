@@ -19,7 +19,7 @@ function getComputerChoice()
 
 function getPlayerChoice()
 {
-    let y = prompt("Enter your choice :");
+    //let y = prompt("Enter your choice :");
     return y;
 }
 
