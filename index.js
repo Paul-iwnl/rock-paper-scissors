@@ -61,6 +61,8 @@ function playRound(playerChoice, computerChoice)
 {   
     var winmsgElement = document.getElementById("win-lose-msg");
     var gameDetailElement = document.getElementById("game-detail");
+    var playerScoreElement = document.getElementById("playerScore");
+    var computerScoreElement = document.getElementById("computerScore");
 
     if (playerChoice === "rock" && computerChoice === "rock") 
     {
@@ -73,6 +75,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You lose !";
         gameDetailElement.textContent = "Paper beats rock"
         computerScore = computerScore + 1;
+        computerScoreElement.textContent = "Computer Score : "+computerScore;
     }
 
     if (playerChoice === "rock" && computerChoice === "scissor") 
@@ -80,6 +83,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You win!";
         gameDetailElement.textContent = "Rock beats scissor";
         playerScore = playerScore + 1;
+        playerScoreElement.textContent = "Player Score : "+playerScore;
     }
 
     if (playerChoice === "paper" && computerChoice === "rock") 
@@ -87,6 +91,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You win!";
         gameDetailElement.textContent = "Paper beats rock";
         playerScore = playerScore + 1;
+        playerScoreElement.textContent = "Player Score : "+playerScore;
     }
 
     if (playerChoice === "paper" && computerChoice === "paper") 
@@ -100,6 +105,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You lose !";
         gameDetailElement.textContent = "Scissor beats paper";
         computerScore = computerScore + 1;
+        computerScoreElement.textContent = "Computer Score : "+computerScore;
     }
 
     if (playerChoice === "scissor" && computerChoice === "rock") 
@@ -107,6 +113,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You lose!";
         gameDetailElement.textContent = "Rock beats scissor"
         computerScore = computerScore + 1;
+        computerScoreElement.textContent = "Computer Score : "+computerScore;
     }
 
     if (playerChoice === "scissor" && computerChoice === "paper") 
@@ -114,6 +121,7 @@ function playRound(playerChoice, computerChoice)
         winmsgElement.textContent = "You win!";
         gameDetailElement.textContent = "Scissor beats paper";
         playerScore = playerScore + 1;
+        playerScoreElement.textContent = "Player Score : "+playerScore;
     }
 
     if (playerChoice === "scissor" && computerChoice === "scissor") 
