@@ -19,18 +19,18 @@
         </h1>
     </div>
     <div class = "body">
-        <h2>
+        <h2 id = "win-lose-msg">
             Choose your weapon
         </h2>
-        <h3>
+        <h3 id = "game-detail">
             First to score 5 points wins the game
         </h3>
         <div class = "game-area">
             <div class = "player choice">
-                <p>?</p>
+                <p id = "playerChoice">?</p>
             </div>
             <div class = "computer choice">
-                <p>?</p>
+                <p id = "computerChoice">?</p>
             </div>
         </div>
         <div class = "score">
@@ -38,9 +38,9 @@
             <p>Computer score : 0</p>
         </div>
         <div class="select-area">
-            <button class = "rock btn">✊</button>
-            <button class = "paper btn">✋</button>
-            <button class = "scissors btn">✌️</button>
+            <button onclick="getPlayerChoice('rock')" class = "rock btn">✊</button>
+            <button onclick="getPlayerChoice('paper')" class = "paper btn">✋</button>
+            <button onclick="getPlayerChoice('scissor')" class = "scissor btn">✌️</button>
         </div>
     </div>
     <div class = "footer">

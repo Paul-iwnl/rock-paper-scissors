@@ -17,77 +17,114 @@ function getComputerChoice()
     return x;
 }
 
-function getPlayerChoice()
+function getPlayerChoice(choice)
 {
-    //let y = prompt("Enter your choice :");
-    return y;
+    playerChoice = choice;
+    updateScreen(choice);
 }
 
-function playRound(playerSelection, computuerSelection) 
+function updateScreen()
 {
-    if(playerSelection === "rock" && computuerSelection ==="rock")
+    var playerChoiceElement = document.getElementById("playerChoice");
+    if (playerChoice == "rock") 
     {
-        console.log("It's a draw!");
+      playerChoiceElement.textContent = "✊";
     }
-    if(playerSelection === "rock" && computuerSelection ==="paper")
+    if (playerChoice == "paper") 
     {
-        console.log("You lose! paper beats rock");
+      playerChoiceElement.textContent = "✋";
+    }
+    if (playerChoice == "scissor") 
+    {
+      playerChoiceElement.textContent = "✌️";
+    }
+
+    var computerChoiceElement = document.getElementById("computerChoice");
+    computerChoice = getComputerChoice();
+
+    if(computerChoice == "rock")
+    {
+        computerChoiceElement.textContent = "✊";
+    }
+    if(computerChoice == "paper")
+    {
+        computerChoiceElement.textContent = "✋";
+    }
+    if(computerChoice == "scissor")
+    {
+        computerChoiceElement.textContent = "✌️";
+    }
+    playRound(playerChoice,computerChoice);
+}
+
+function playRound(playerChoice, computerChoice) 
+{   
+    var winmsgElement = document.getElementById("win-lose-msg");
+    var gameDetailElement = document.getElementById("game-detail");
+
+    if (playerChoice === "rock" && computerChoice === "rock") 
+    {
+        winmsgElement.textContent = "It's a tie!";
+        gameDetailElement.textContent = "Rock ties with rock"
+    }
+
+    if (playerChoice === "rock" && computerChoice === "paper") 
+    {
+        winmsgElement.textContent = "You lose !";
+        gameDetailElement.textContent = "Paper beats rock"
         computerScore = computerScore + 1;
     }
-    if(playerSelection === "rock" && computuerSelection === "scissor")
+
+    if (playerChoice === "rock" && computerChoice === "scissor") 
     {
+        winmsgElement.textContent = "You win!";
+        gameDetailElement.textContent = "Rock beats scissor";
         playerScore = playerScore + 1;
-        console.log("You win! rock beats scissor")
     }
-    if (playerSelection === "paper" && computuerSelection === "rock") 
+
+    if (playerChoice === "paper" && computerChoice === "rock") 
     {
+        winmsgElement.textContent = "You win!";
+        gameDetailElement.textContent = "Paper beats rock";
         playerScore = playerScore + 1;
-        console.log("You win! paper beats rock");
     }
-    if (playerSelection === "paper" && computuerSelection === "paper") 
+
+    if (playerChoice === "paper" && computerChoice === "paper") 
     {
-        console.log("It's a draw");
+        winmsgElement.textContent = "It's a tie!";
+        gameDetailElement.textContent = "Paper ties with paper";
     }
-    if (playerSelection === "paper" && computuerSelection === "scissor") 
+
+    if (playerChoice === "paper" && computerChoice === "scissor") 
     {
+        winmsgElement.textContent = "You lose !";
+        gameDetailElement.textContent = "Scissor beats paper";
         computerScore = computerScore + 1;
-        console.log("You lose! scissor beats paper");
     }
-    if (playerSelection === "scissor" && computuerSelection === "rock") 
+
+    if (playerChoice === "scissor" && computerChoice === "rock") 
     {
+        winmsgElement.textContent = "You lose!";
+        gameDetailElement.textContent = "Rock beats scissor"
         computerScore = computerScore + 1;
-        console.log("You lose! rock beats scissor");
     }
-    if (playerSelection === "scissor" && computuerSelection === "paper") 
+
+    if (playerChoice === "scissor" && computerChoice === "paper") 
     {
+        winmsgElement.textContent = "You win!";
+        gameDetailElement.textContent = "Scissor beats paper";
         playerScore = playerScore + 1;
-        console.log("You win! scissor beats paper");
     }
-    if (playerSelection === "scissor" && computuerSelection === "scissor") 
+
+    if (playerChoice === "scissor" && computerChoice === "scissor") 
     {
-        console.log("It's a draw");
+        winmsgElement.textContent = "It's a tie!";
+        gameDetailElement.textContent = "Scissor ties with scissor";
     }
 }
 
-function game()
-{
-     while (computerScore != 5 || playerScore != 5)
-     {
-        var playerSelection = getPlayerChoice();
-        playerSelection = playerSelection.toLowerCase();
-        var computuerSelection = getComputerChoice();
-        console.log("The player choice :" + playerSelection);
-        console.log("The computer choice :" + computuerSelection);
-        console.log(playRound(playerSelection, computuerSelection));
-        console.log("Player score :"+playerScore);
-        console.log("Computer score :"+computerScore);
-
-        if(computerScore == 5 || playerScore == 5)
-        {
-            break;
-        }
-     }
-}
+var playerChoice;
+var computerChoice;
 var computerScore = 0;
 var playerScore = 0;
-game();
+
