@@ -76,6 +76,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Paper beats rock"
         computerScore = computerScore + 1;
         computerScoreElement.textContent = "Computer Score : "+computerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "rock" && computerChoice === "scissor") 
@@ -84,6 +85,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Rock beats scissor";
         playerScore = playerScore + 1;
         playerScoreElement.textContent = "Player Score : "+playerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "paper" && computerChoice === "rock") 
@@ -92,6 +94,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Paper beats rock";
         playerScore = playerScore + 1;
         playerScoreElement.textContent = "Player Score : "+playerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "paper" && computerChoice === "paper") 
@@ -106,6 +109,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Scissor beats paper";
         computerScore = computerScore + 1;
         computerScoreElement.textContent = "Computer Score : "+computerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "scissor" && computerChoice === "rock") 
@@ -114,6 +118,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Rock beats scissor"
         computerScore = computerScore + 1;
         computerScoreElement.textContent = "Computer Score : "+computerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "scissor" && computerChoice === "paper") 
@@ -122,6 +127,7 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Scissor beats paper";
         playerScore = playerScore + 1;
         playerScoreElement.textContent = "Player Score : "+playerScore;
+        checkGameStatus();
     }
 
     if (playerChoice === "scissor" && computerChoice === "scissor") 
@@ -130,6 +136,27 @@ function playRound(playerChoice, computerChoice)
         gameDetailElement.textContent = "Scissor ties with scissor";
     }
 }
+
+function checkGameStatus()
+{
+    if(playerScore == 5)
+    {
+        displayPopup('Player wins !');
+    }
+    else if(computerScore == 5)
+    {
+        displayPopup('Computer wins !');
+    }
+}
+
+function displayPopup(message)
+{
+    const popup = document.getElementById('popup');
+    const popuptext = document.getElementById('popup-text');
+    popuptext.innerText = message;
+    popup.classList.remove('hidden');
+}
+
 
 var playerChoice;
 var computerChoice;
