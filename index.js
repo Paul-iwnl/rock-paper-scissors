@@ -153,10 +153,15 @@ function displayPopup(message)
 {
     const popup = document.getElementById('popup');
     const popuptext = document.getElementById('popup-text');
+    const overlay = document.getElementById('overlay');
+    var restartButton = document.getElementById("play-again-btn");
     popuptext.innerText = message;
     popup.classList.remove('hidden');
+    overlay.classList.add('active');
+    restartButton.addEventListener('click', function(){
+        location.reload();
+    });
 }
-
 
 var playerChoice;
 var computerChoice;
